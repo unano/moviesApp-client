@@ -56,7 +56,6 @@ describe("Home Page ", () => {
       })
       it("should display no movie with 'xyz' in the title", () => {
         const searchString = "xyz";
-        const matchingMovies = filterByTitle(movies, searchString);
         cy.get("input").clear().type(searchString);
         cy.get(".card").should("have.length", 0);
       })
@@ -72,6 +71,23 @@ describe("Home Page ", () => {
           cy.wrap($card)
             .find(".card-title")
             .should("have.text", matchingMovies[index].title);
+        });      
+      });
+    });
+    describe("By movie title and genre", () => {
+      it("should display movies with the specified genre and text only", () => {
+        const selectedGenreId = 35;
+        const selectedGenreText = "Comedy";
+        const searchString = "o";
+        const matchingMovies1 = filterByGenre(movies, selectedGenreId);
+        const matchingMovies2 = filterByTitle(matchingMovies1, searchString);
+        cy.get("select").select(selectedGenreText); 
+        cy.get("input").clear().type(searchString) ; 
+        cy.get(".card").should("have.length", matchingMovies2.length);
+        cy.get(".card").each(($card, index) => {
+          cy.wrap($card)
+            .find(".card-title")
+            .should("have.text", matchingMovies2[index].title);
         });      
       });
     });
