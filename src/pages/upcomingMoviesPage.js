@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext} from "react";
 import PageTemplate from '../components/templateMovieListPage'
-import { getUpcomingMovies } from "../api/tmdb-api";
 import AddToWatchListButton from '../components/buttons/addToWatchList'
+import {MoviesContext} from '../contexts/moviesContext'
 
 const UpcomingMovieListPage = () => {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    getUpcomingMovies().then(movies => {
-      setMovies(movies);
-    });
-  }, []);
-
+  const context = useContext(MoviesContext);
+  const upcoming = context.upcoming
   return (
       <PageTemplate
         title='Upcoming Movies'
-        movies={movies}
+        movies={upcoming}
         action={(movie) => {
           return <AddToWatchListButton movie={movie} />;
         }}
