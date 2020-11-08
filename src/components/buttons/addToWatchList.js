@@ -1,13 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import {MoviesContext} from "../../contexts/moviesContext";
 
-const AddToWatchListButton  = () => {
+const AddToWatchListButton  = ({ movie }) => {
+        const context = useContext(MoviesContext);
+      
+        const handleAddToWatchLater = e => {
+          e.preventDefault();
+          context.addToWatchList(movie.id);
+        };
+      
   return (
-    <Link
+    <button
       type="button"
-      className="btn w-100 btn-primary">
+      className="btn w-100 btn-primary"
+      onClick={handleAddToWatchLater}>
       Add to watch list
-    </Link>
+    </button>
   );
 };
 
