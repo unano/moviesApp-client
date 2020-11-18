@@ -11,7 +11,7 @@ const UpcomingMovieListPage = () => {
 
   return (
     <PageTemplate
-      title="No. Movies"
+      title="Discover Movies"
       movies={movies}  /* Changed */
       action={(movie) => {
         return <AddToFavoritesButton movie={movie} />;
