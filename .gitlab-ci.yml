@@ -28,9 +28,6 @@ install_dependencies:
   stage: install
   script:
     - npm ci
-  artifacts:
-    paths:
-      - node_modules/
 
 bundle_app:
   stage: build
@@ -40,6 +37,13 @@ bundle_app:
     paths:
       - build/
 
+build_jobX:
+  stage: build
+  only:
+    - demobranch
+  script:
+    - echo "build job X on demoBranch works"
+    
 e2etest:    
   stage: test
   before_script:
