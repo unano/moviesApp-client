@@ -1,24 +1,23 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import {MoviesContext} from '../contexts/moviesContext'
-import AddToFavoritesButton from '../components/buttons/addToFavorites'
+import AddToCollectionsButton from '../components/buttons/addToCollections'
 
-const HomePage = () => {
+const TopRatedMoviesPage = () => {
   const context = useContext(MoviesContext);
-  const movies = context.movies.filter((m) => {  // New
-    return !("favorite" in m);
+  const movies = context.topRated.filter((m) => {  // New
+    return !("collections" in m);
   });
 
   return (
     <PageTemplate
-      title="Discover Movies"
+      title="topRated Movies"
       movies={movies}  /* Changed */
       action={(movie) => {
-        return <AddToFavoritesButton movie={movie} />;
+        return <AddToCollectionsButton movie={movie} />;
       }}
     />
   );
 };
 
-export default HomePage;
-
+export default TopRatedMoviesPage;
