@@ -29,7 +29,7 @@ const reducer = (state, action) => {
           movies: [...state.movies],
           topRated: [...state.topRated]
         };
-    case "add-add-Collections":
+    case "add-Collections":
         return {
           topRated: state.topRated.map((m) =>
             m.id === action.payload.topRated.id ? { ...m, collections: true } : m
