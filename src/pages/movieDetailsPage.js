@@ -19,14 +19,14 @@ const MoviePage = props => {
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (
               <Link
-                className="btn btn-primary btn-block active"
+                className="btn alert-info  btn-block active"
                 to={`/movies/${id}/reviews`}
               >
                 Show Reviews (Extracts)
               </Link>
             ) : (
               <Link
-                className="btn btn-primary btn-block active"
+                className="btn alert-info  btn-block active"
                 to={`/movies/${id}`}
               >
                 Hide Reviews 

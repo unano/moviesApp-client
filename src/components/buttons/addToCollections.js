@@ -12,7 +12,7 @@ const AddToCollectionsButton  = ({ movie }) => {
   return (
     <button
       type="button"
-      className="btn w-100 btn-primary"
+      className="btn w-100 btn-info alert-info"
       onClick={handleAddToCollections}>
       Add to Collections
     </button>

@@ -14,8 +14,8 @@ const ReviewForm = ({ movie, history }) => {
   };
 
   return (
-    <form className="form bg-dark text-light" onSubmit={handleSubmit(onSubmit)}>
-      <h3>Add your review</h3>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <div id="name">Add your review</div>
       <div className="form-group">
         <input
           type="text"
@@ -45,12 +45,12 @@ const ReviewForm = ({ movie, history }) => {
         <p className="text-white">{errors.content.message} </p>
       )}
 
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-info alert-info">
         Submit
       </button>
       <button
         type="reset"
-        className="btn btn-primary reset"
+        className="btn btn-info alert-info reset"
         onClick={() => {
           reset({
             author: "",

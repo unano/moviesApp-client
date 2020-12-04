@@ -5,3 +5,8 @@
 button.reset {
     margin-left: 20px;
 }
+
+#name{
+    font-size: 25px;
+    font-weight: 300;
+}

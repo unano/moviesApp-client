@@ -6,10 +6,10 @@ import "./siteHeader.css";
 
 const SiteHeader = () => {
   return (
-    <nav className="navbar  navbar-light fixed-top  bg-dark ">
+    <nav className="navbar  navbar-light fixed-top" id="header">
       <nav className="navbar-brand text-white">
-        <Link className=" text-white" to="/">
-          TMDB Client
+        <Link className="text-white" id="Tmdb" to="/">
+           TMDB
         </Link>
       </nav>
       <FontAwesomeIcon
@@ -38,13 +38,13 @@ const SiteHeader = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/favorites">
-              Favorites
+            <Link className="nav-link text-white" to="/movies/topRated">
+              Top Rated
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/topRated">
-              Top Rated
+            <Link className="nav-link text-white" to="/movies/favorites">
+              Favorites
             </Link>
           </li>
           <li className="nav-item">

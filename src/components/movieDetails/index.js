@@ -7,13 +7,13 @@ export default ({ movie }) => {
       <h4>Overview</h4>
       <p>{movie.overview}</p>
       <ul className="list-group list-group-horizontal">
-        <li key="ruh" className="list-group-item list-group-item-dark">
+        <li key="ruh" className="list-group-item list-group-item-info">
           Runtime (min.)
         </li>
         <li key="rut" className="list-group-item ">
           {movie.runtime}
         </li>
-        <li key="rdh" className="list-group-item list-group-item-dark">
+        <li key="rdh" className="list-group-item list-group-item-info">
           Release Date
         </li>
         <li key="rdv" className="list-group-item ">
@@ -22,7 +22,7 @@ export default ({ movie }) => {
       </ul>
 
       <ul className="list-group list-group-horizontal">
-        <li key="gh" className="list-group-item list-group-item-dark">
+        <li key="gh" className="list-group-item list-group-item-info">
           Genres
         </li>
         {movie.genres.map(g => (
@@ -32,7 +32,7 @@ export default ({ movie }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="slh" className="list-group-item list-group-item-dark">
+        <li key="slh" className="list-group-item list-group-item-info">
           Spoken Languages
         </li>
         {movie.spoken_languages.map(lang => (
@@ -42,7 +42,7 @@ export default ({ movie }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="pch" className="list-group-item list-group-item-dark">
+        <li key="pch" className="list-group-item list-group-item-info">
           Production Companies
         </li>
         {movie.production_companies.map(pc => (
@@ -52,7 +52,7 @@ export default ({ movie }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="pch" className="list-group-item list-group-item-dark">
+        <li key="pch" className="list-group-item list-group-item-info">
           Production Countries
         </li>
         {movie.production_countries.map(pc => (

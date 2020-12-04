@@ -13,7 +13,7 @@ export default ({ movie }) => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <table className="table table-striped table-bordered table-hover">
+    <table className="table table-bordered table-hover">
       <thead>
         <tr>
           <th scope="col">Author</th>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ReviewButton = ({ movie }) => {
   return (
     <Link
-      className="btn w-100 btn-primary "
+      className="btn w-100 btn-info alert-info "
       to={{
         pathname: `/reviews/form`,
         state: {

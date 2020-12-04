@@ -12,12 +12,12 @@ import TopRatedMoviesPage from './pages/topRatedMoviesPage';
 import WatchListPage from './pages/watchListPage'; 
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
-import AddMovieReviewPage from './pages/addMovieReviewPage'
+import AddMovieReviewPage from './pages/addMovieReviewPage';
 
 const App = () => {
   return (
     <BrowserRouter>
-    <div className="jumbotron">
+    <div className="jumbotron bg-white">
       <SiteHeader /> 
       <div className="container-fluid">
       <MoviesContextProvider>     {/* NEW  */}
