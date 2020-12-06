@@ -1,7 +1,6 @@
-import React ,{useState, useContext}from "react";
+import React ,{useState}from "react";
 import "../loginWindow/loginWindow.css"
 import Button from '@material-ui/core/Button';
-import {LoginContext} from '../../contexts/loginContext'
 import { Link } from "react-router-dom";
 
 const Regist = props => {
@@ -51,7 +50,7 @@ const Regist = props => {
         
     return(
         <div id="window">
-        <div>Regist</div>
+        <div id="LoginTitle">Regist</div>
         <dl>
             <li className="nav-item" class="li1">
                 <span>Username:</span> 

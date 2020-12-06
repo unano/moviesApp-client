@@ -44,24 +44,22 @@ const Login = props => {
         
     return(
         <div id="window">
-        <div>login</div>
+        <div id="LoginTitle">login</div>
         <dl>
             <li className="nav-item" class="li1">
                 <span>Username:</span> 
                 <input className="input" onChange={UnInput} required />
             </li>
             <li className="nav-item" class="li1" id ="passwordButton">
-                <span>Password:</span> 
+                <span>Password:</span>
                 <input className="input" id="passwordButton" onChange={PwInput} required />
             </li>
             <Button variant="outlined" size="small" type="button" onClick={ValidateLogin}>
                 Login
             </Button>
-            <li className="nav-item" class="li1">
             <Link className="nav-link" to="/movies/regist">
                 regist
             </Link>
-            </li>
         </dl>
         </div>
     )

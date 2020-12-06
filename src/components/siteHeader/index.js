@@ -4,7 +4,6 @@ import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
 import {LoginContext} from '../../contexts/loginContext'
-import Button from '@material-ui/core/Button';
 
 const SiteHeader = () => {
   const Logcontext = useContext(LoginContext);
