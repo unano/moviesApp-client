@@ -6,6 +6,7 @@ import {MoviesContext} from '../contexts/moviesContext'
 const CollectionPage = props => {
   const context = useContext(MoviesContext);
   const collection = context.topRated.filter( m => m.collections )
+
   return (
     <MovieListPageTemplate
       movies={collection}

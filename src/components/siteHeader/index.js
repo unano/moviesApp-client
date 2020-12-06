@@ -57,6 +57,11 @@ const SiteHeader = () => {
               Collection
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/movies/login">
+              Login
+            </Link>
+          </li>
         </ul>
       </nav>
     </nav>

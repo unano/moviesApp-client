@@ -14,7 +14,9 @@ import CollectionPage from './pages/collectionPage';
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
-
+import LoginPage from './pages/loginWindow';
+import RegistPage from './pages/registWindow';
+import LoginContextProvider from './contexts/loginContext' 
 const App = () => {
   return (
     <BrowserRouter>
@@ -23,6 +25,7 @@ const App = () => {
       <div className="container-fluid">
       <MoviesContextProvider>     {/* NEW  */}
       <GenresContextProvider>    {/* NEW */}
+      <LoginContextProvider>
         <Switch>
           <Route exact path="/reviews/form" component={AddMovieReviewPage} />
           <Route path="/reviews/:id" component={MovieReviewPage} />
@@ -31,10 +34,13 @@ const App = () => {
           <Route exact path="/movies/topRated" component={TopRatedMoviesPage} /> 
           <Route exact path="/movies/watchList" component={WatchListPage} />
           <Route exact path="/movies/collection" component={CollectionPage} />
+          <Route exact path="/movies/login" component={LoginPage} />
+          <Route exact path="/movies/regist" component={RegistPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
         </Switch>
+        </LoginContextProvider>
         </GenresContextProvider>    {/* NEW */}
         </MoviesContextProvider>     {/* NEW */}
       </div>

@@ -1,12 +1,19 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
+import {LoginContext} from '../../contexts/loginContext'
 
 const AddToWatchListButton  = ({ movie }) => {
         const context = useContext(MoviesContext);
+        const Logcontext = useContext(LoginContext);
       
         const handleAddToWatchLater = e => {
+          if(Logcontext.login===0){
+            alert("please login first")
+          }
+          else{
           e.preventDefault();
           context.addToWatchList(movie.id);
+          }
         };
       
   return (
