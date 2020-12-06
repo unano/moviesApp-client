@@ -1,4 +1,4 @@
-import React, { useState,createContext,useReducer } from "react";
+import React, {createContext,useReducer } from "react";
 
 export const LoginContext = createContext(null);
 
@@ -12,9 +12,11 @@ const reducer=(state, action)=> {
         throw new Error();
     }
   }
+  let user=[["adminstrator"],["123456"]]
+  localStorage.setItem('user',JSON.stringify(user));
+  
 const LoginContextProvider=(props)=>{
     const[state, dispatch] = useReducer(reducer, {login: 0});
-    const[userInfo,setUserInfo]=useState({username:"",password:""})
 
     const changeStateToLogged=()=>{
         dispatch({type: 'logged'})
@@ -27,10 +29,10 @@ const LoginContextProvider=(props)=>{
         <LoginContext.Provider
           value={{
             login:state.login,
-            userInfo:userInfo,
+            // username:username,
+            // password:password,
             changeStateToLogged:changeStateToLogged,
             changeStateToUnLogged:changeStateToUnLogged,
-            setUserInfo:setUserInfo
         }}
         >
             {props.children}

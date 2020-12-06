@@ -9,7 +9,7 @@ const AddToCollectionsButton  = ({ movie }) => {
         const handleAddToCollections = e => {
           e.preventDefault();
           if(Logcontext.login===0){
-            alert(Logcontext.userInfo.username)
+            alert("please login first")
           }
           else{
             context.addToCollections(movie.id);

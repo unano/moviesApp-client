@@ -7,12 +7,32 @@ import { Link } from "react-router-dom";
 const Login = props => {
     const context = useContext(LoginContext);
     const[userInfo,setUserInfo]=useState({username:"",password:""})
+    const user = JSON.parse(localStorage.getItem('user'));
+    const username =user[0]
+    const password =user[1]
+    function judge(m){
+        for(let i = 0; i　< username.length; i++) {
+            if(username[i]===m.username && password[i]===m.password){
+                 return true;
+            }
+            else if(i===username.length-1){
+                return false;
+            }
+        }
+    }
 
     const ValidateLogin=()=>{
-        if(userInfo.username!=="" && userInfo.password!=="" && 
-        userInfo.username===context.userInfo.username && userInfo.password===context.userInfo.username){
-            context.changeStateToLogged();
-            alert("login success")
+        if(userInfo.username!=="" && userInfo.password!==""){
+            if(judge(userInfo) && context.login===0){
+                    context.changeStateToLogged();
+                    alert("login success")
+                }
+            else if(context.login===1){
+                alert("You have already logined")
+            }
+            else(
+                alert("wrong username/password")
+            )
         }
     }
     const UnInput= e=> {

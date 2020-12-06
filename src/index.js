@@ -21,11 +21,11 @@ const App = () => {
   return (
     <BrowserRouter>
     <div className="jumbotron bg-white">
+    <LoginContextProvider>
       <SiteHeader /> 
       <div className="container-fluid">
       <MoviesContextProvider>     {/* NEW  */}
       <GenresContextProvider>    {/* NEW */}
-      <LoginContextProvider>
         <Switch>
           <Route exact path="/reviews/form" component={AddMovieReviewPage} />
           <Route path="/reviews/:id" component={MovieReviewPage} />
@@ -40,10 +40,10 @@ const App = () => {
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
         </Switch>
-        </LoginContextProvider>
         </GenresContextProvider>    {/* NEW */}
         </MoviesContextProvider>     {/* NEW */}
       </div>
+      </LoginContextProvider>
     </div>
   </BrowserRouter>
   );

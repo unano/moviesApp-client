@@ -1,10 +1,28 @@
-import React from "react";
+import React , {useContext} from "react";
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
+import {LoginContext} from '../../contexts/loginContext'
+import Button from '@material-ui/core/Button';
 
 const SiteHeader = () => {
+  const Logcontext = useContext(LoginContext);
+  if(Logcontext.login===1){
+  }
+  const loginBut = {
+    display:Logcontext.login===1?"none" : "block"
+  };
+
+  const logoutBut = {
+
+    display:Logcontext.login===0?"none" : "block"
+  };
+
+  const ValidateLogout=()=>{
+    Logcontext.changeStateToUnLogged();
+}
+
   return (
     <nav className="navbar  navbar-light fixed-top" id="header">
       <nav className="navbar-brand text-white">
@@ -57,10 +75,15 @@ const SiteHeader = () => {
               Collection
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" style={loginBut}>
             <Link className="nav-link text-white" to="/movies/login">
               Login
             </Link>
+          </li>
+          <li className="nav-item" style={logoutBut}>
+          <div className="nav-link text-white" onClick={ValidateLogout}>
+              Log out
+          </div>
           </li>
         </ul>
       </nav>
