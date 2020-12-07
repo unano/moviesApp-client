@@ -32,16 +32,11 @@ const SiteHeader = () => {
       <FontAwesomeIcon
         className="navbar-text text-light"
         icon={["fas", "video"]}
-        size="3x"
+        size="2x"
       />
       <span className="navbar-text text-light">
-        For the movie enthusiast !!
+        For the movie enthusiast!
       </span>
-      <FontAwesomeIcon
-        className="navbar-text text-light"
-        icon={["fas", "film"]}
-        size="3x"
-      />
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
           <li className="nav-item">

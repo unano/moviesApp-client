@@ -26,7 +26,7 @@ describe("Home Page ", () => {
 
   describe("Base test", () => {
     it("displays page header", () => {
-      cy.get("h2").contains("Discover Movies");
+      cy.get(".title").contains("Discover Movies");
       cy.get(".badge").contains(20);
     });
   });
@@ -39,7 +39,7 @@ describe("Home Page ", () => {
         cy.get(".card").should("have.length", matchingMovies.length);
         cy.get(".card").each(($card, index) => {
           cy.wrap($card)
-          .find(".card-title")
+          .find(".card-titles")
           .should("have.text", matchingMovies[index].title);
         });
       })
@@ -50,7 +50,7 @@ describe("Home Page ", () => {
         cy.get(".card").should("have.length", matchingMovies.length);
         cy.get(".card").each(($card, index) => {
           cy.wrap($card)
-          .find(".card-title")
+          .find(".card-titles")
           .should("have.text", matchingMovies[index].title);
         })
       })
@@ -69,7 +69,7 @@ describe("Home Page ", () => {
         cy.get(".card").should("have.length", matchingMovies.length);
         cy.get(".card").each(($card, index) => {
           cy.wrap($card)
-            .find(".card-title")
+            .find(".card-titles")
             .should("have.text", matchingMovies[index].title);
         });      
       });
@@ -86,7 +86,7 @@ describe("Home Page ", () => {
         cy.get(".card").should("have.length", matchingMovies2.length);
         cy.get(".card").each(($card, index) => {
           cy.wrap($card)
-            .find(".card-title")
+            .find(".card-titles")
             .should("have.text", matchingMovies2[index].title);
         });      
       });

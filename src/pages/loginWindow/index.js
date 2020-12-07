@@ -46,7 +46,7 @@ const Login = props => {
         <div id="window">
         <div id="LoginTitle">login</div>
         <dl>
-            <li className="nav-item" class="li1">
+            <li className="nav-item" class="li1"id="usernameButton">
                 <span>Username:</span> 
                 <input className="input" onChange={UnInput} required />
             </li>
@@ -54,7 +54,7 @@ const Login = props => {
                 <span>Password:</span>
                 <input className="input" id="passwordButton" onChange={PwInput} required />
             </li>
-            <Button variant="outlined" size="small" type="button" onClick={ValidateLogin}>
+            <Button variant="outlined" size="small" type="button" id="Login" onClick={ValidateLogin}>
                 Login
             </Button>
             <Link className="nav-link" to="/movies/regist">

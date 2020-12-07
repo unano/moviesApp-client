@@ -33,7 +33,7 @@ describe("Movie Details Page", () => {
   });
 
   it("should display movie title in the page header", () => {
-    cy.get("h2").contains(movie.title);
+    cy.get("#titles").contains(movie.title);
 });
   it("should display the movie's details", () => {
     cy.get("h4").contains("Overview");
