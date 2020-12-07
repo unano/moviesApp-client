@@ -34,9 +34,6 @@ const SiteHeader = () => {
         icon={["fas", "video"]}
         size="2x"
       />
-      <span className="navbar-text text-light">
-        For the movie enthusiast!
-      </span>
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
           <li className="nav-item">
