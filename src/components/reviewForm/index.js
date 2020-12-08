@@ -26,7 +26,7 @@ const ReviewForm = ({ movie, history }) => {
           ref={register({ required: "Author name required" })}
         />
       </div>
-      {errors.author && <p className=" text-white">{errors.author.message} </p>}
+      {errors.author && <p className=" text-black">{errors.author.message} </p>}
       <div className="form-group">
         <textarea
           rows="10"

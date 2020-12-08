@@ -66,9 +66,9 @@ describe("Navigation", () => {
   // });
   describe("From the Favorites page", () => {
     beforeEach(() => {
+      cy.visit("/");
       cy.Adminlogin();
-      cy.get(".card").eq(0).find("button").click();
-      cy.get("nav").find("li").eq(3).find("a").click();
+      cy.get("nav").find("li").eq(0).find("a").click();
     });
     it("should navigate to the movies detail page and change the browser URL", () => {
       cy.get(".card").eq(0).find("img").click();
@@ -78,7 +78,9 @@ describe("Navigation", () => {
   });
   describe("The Go Back button", () => {
     beforeEach(() => {
+      cy.visit("/");
       cy.Adminlogin();
+      cy.get("nav").find("li").eq(0).find("a").click();
     });
     it("should navigate from home page to movie details and back", () => {
       cy.get(".card").eq(1).find("img").click();

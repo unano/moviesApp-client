@@ -46,11 +46,11 @@ const Login = props => {
         <div id="window">
         <div id="LoginTitle">login</div>
         <dl>
-            <li className="nav-item" class="li1"id="usernameButton">
+            <li className="nav-item" id="usernameButton">
                 <span>Username:</span> 
                 <input className="input" onChange={UnInput} required />
             </li>
-            <li className="nav-item" class="li1" id ="passwordButton">
+            <li className="nav-item"  id ="passwordButton">
                 <span>Password:</span>
                 <input className="input" id="passwordButton" onChange={PwInput} required />
             </li>

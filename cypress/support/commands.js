@@ -24,10 +24,23 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add('Adminlogin',()=>{
-    cy.visit("/");
     cy.get("nav").find("li").eq(6).find("a").click();
     cy.get("#usernameButton").type("adminstrator") ;
     cy.get("#passwordButton").type("123456") ;
     cy.get('#Login').click();
-    cy.get("nav").find("li").eq(0).find("a").click();
+});
+
+Cypress.Commands.add('regist',(username,password)=>{
+    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.contains("regist").click();
+    cy.contains("Username:").next().type(username) ;
+    cy.get("#passwordButton").type(password) ;
+    cy.get("#passwordButton").next().click();
+});
+
+Cypress.Commands.add('login',(username,password)=>{
+    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get("#usernameButton").type(username) ;
+    cy.get("#passwordButton").type(password) ;
+    cy.get("#passwordButton").next().click();
 });

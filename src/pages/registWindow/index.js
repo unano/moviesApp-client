@@ -52,11 +52,11 @@ const Regist = props => {
         <div id="window">
         <div id="LoginTitle">Regist</div>
         <dl>
-            <li className="nav-item" class="li1">
+            <li className="nav-item">
                 <span>Username:</span> 
                 <input className="input" onChange={UnInput} required />
             </li>
-            <li className="nav-item" class="li1" id ="passwordButton">
+            <li className="nav-item" id ="passwordButton">
                 <span>Password:</span> 
                 <input className="input" id="passwordButton" onChange={PwInput} required />
             </li>
