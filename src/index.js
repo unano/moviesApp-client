@@ -17,6 +17,8 @@ import AddMovieReviewPage from './pages/addMovieReviewPage';
 import LoginPage from './pages/loginWindow';
 import RegistPage from './pages/registWindow';
 import LoginContextProvider from './contexts/loginContext' 
+import PeopleDetailsPage from './pages/peopleDetailsPage'
+import PopularPeoplePage from './pages/popularPeoplePage';
 const App = () => {
   return (
     <BrowserRouter>
@@ -27,6 +29,8 @@ const App = () => {
       <MoviesContextProvider>     {/* NEW  */}
       <GenresContextProvider>    {/* NEW */}
         <Switch>
+          <Route exact path="/person" component={PopularPeoplePage} />
+          <Route path="/person/:id" component={PeopleDetailsPage} />
           <Route exact path="/reviews/form" component={AddMovieReviewPage} />
           <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
@@ -39,6 +43,7 @@ const App = () => {
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
+          
         </Switch>
         </GenresContextProvider>    {/* NEW */}
         </MoviesContextProvider>     {/* NEW */}
