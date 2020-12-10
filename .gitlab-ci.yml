@@ -5,7 +5,6 @@ image: cypress/browsers:node12.0.0-chrome73
 stages:
   - install
   - build
-  - exercise
   - test
 
 # Jobs 
@@ -37,31 +36,12 @@ bundle_app:
   artifacts:
     paths:
       - build/
-
-build_jobX:
-  stage: build
-  only:
-    - demobranch
-  script:
-    - echo "build job X on demoBranch works"
-
-exercise_job:
-  stage: exercise
-  only:
-    - master
-  script:
-    - echo "build job on master works"
-
-test_jobX:
-  stage: test
-  only:
-    - master
-    - demobranch2
-  script:
-    - echo "test job X"
     
 e2etest:    
   stage: test
+  only:
+    - staging
+    - master
   before_script:
     - npm install -g http-server
     - npm install cypress
