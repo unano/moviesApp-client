@@ -8,7 +8,7 @@ const HomePage = () => {
   const movies = context.movies.filter((m) => {  // New
     return !("favorite" in m);
   });
-
+  
   return (
     <PageTemplate
       title="Discover Movies"
