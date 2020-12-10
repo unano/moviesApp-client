@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { getPopularPeople, getMovies} from "../api/tmdb-api";
+import React, { useState, useEffect } from "react";
+import { getPopularPeople} from "../api/tmdb-api";
 import PersonList from "../components/personList"
 
 
