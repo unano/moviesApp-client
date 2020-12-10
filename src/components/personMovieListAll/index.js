@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./movieCard.css";
 import "../../globals/fontawesome";
 
-const PersonMovieCard = ({movie,property,property2}) => {
+const PersonMovieCard = ({movie}) => {
   return (
     <div className="infos">
       <p className="subheadInfo" style={{color:"black", fontSize:15}}>
