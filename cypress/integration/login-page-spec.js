@@ -12,7 +12,7 @@ describe("Regist", () => {
     })
   });
   it("should alert when user regists without entering anything", () => {
-    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get("nav").find("li").eq(5).find("a").click();
     cy.contains("regist").click();
     const stub = cy.stub();
     cy.on('window:alert', stub);
@@ -42,7 +42,7 @@ describe("Regist", () => {
 describe("Login", () => {
   beforeEach(() => {
       cy.visit(`/`);
-      cy.get("nav").find("li").eq(6).find("a").click();  
+      cy.get("nav").find("li").eq(5).find("a").click();  
     });
     it("should regist in adminstrator account", () => {
       const stub = cy.stub();
@@ -85,7 +85,7 @@ describe("Login", () => {
       cy.on('window:alert', stub);
       cy.regist("user","123456");
       cy.login("user","123456");
-      cy.get("nav").find("li").eq(7).contains("Log out");
+      cy.get("nav").find("li").eq(6).contains("Log out");
     });
 
     it("should be able to do 'add to favorite' after login", () => {
@@ -95,32 +95,32 @@ describe("Login", () => {
       cy.login("user","123456");
       cy.get("nav").find("li").eq(0).find("a").click();
       cy.get(".card").eq(0).find("button").click();
-      cy.get("nav").find("li").eq(3).find("a").click();
+      cy.get("nav").find("div").contains("Personal area").click().get("#simple-menu").contains("Favorites").click().then(() => {
       cy.get(".card").eq(0).should('be.visible')
     });
   });
+});
   describe("Log out", () => {
     beforeEach(() => {
       cy.visit(`/`);
-      cy.get("nav").find("li").eq(6).find("a").click();  
+      cy.get("nav").find("li").eq(5).find("a").click();  
     });
     it("should be able to login after logi out", () => {
       const stub = cy.stub();
       cy.on('window:alert', stub);
       cy.regist("user","123456");
       cy.login("user","123456");
-      cy.get("nav").find("li").eq(7).click();
-      cy.get("nav").find("li").eq(6).contains("Login");
+      cy.get("nav").find("li").eq(6).click();
+      cy.get("nav").find("li").eq(5).contains("Login");
     });
     it("should not be able to do 'add to favorite' after log out", () => {
       const stub = cy.stub();
       cy.on('window:alert', stub);
       cy.regist("user","123456");
       cy.login("user","123456");
-      cy.get("nav").find("li").eq(7).click();
+      cy.get("nav").find("li").eq(6).click();
       cy.get("nav").find("li").eq(0).find("a").click();
-      cy.get(".card").eq(0).find("button").click();
-      cy.get("nav").find("li").eq(3).find("a").click().then(() => {
+      cy.get(".card").eq(0).find("button").click().then(() => {
         expect(stub.getCall(2)).to.be.calledWith('please login first')
       })
     })

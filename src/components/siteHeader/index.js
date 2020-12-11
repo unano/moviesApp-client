@@ -4,6 +4,9 @@ import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
 import {LoginContext} from '../../contexts/loginContext'
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const SiteHeader = () => {
   const Logcontext = useContext(LoginContext);
@@ -21,6 +24,18 @@ const SiteHeader = () => {
   const ValidateLogout=()=>{
     Logcontext.changeStateToUnLogged();
 }
+const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    if(Logcontext.login===1)
+    setAnchorEl(event.currentTarget);
+    else
+    alert("please login first");
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <nav className="navbar  navbar-light fixed-top" id="header">
@@ -52,24 +67,37 @@ const SiteHeader = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/favorites">
-              Favorites
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/watchList">
-              Watch List
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/collection">
-              Collection
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link className="nav-link text-white" to="/person">
               Person
             </Link>
+          </li>
+          <div className="nav-item" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+            <div className="nav-link text-white">Personal area</div>
+          </div>
+          <li>
+          <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+            <MenuItem onClick={handleClose}>
+              <li className="nav-item">
+                <Link className="nav-link text-info" to="/movies/favorites">
+                  Favorites
+                  </Link>
+              </li>
+            </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <li className="nav-item">
+              <Link className="nav-link text-info" to="/movies/watchList">
+                Watch List
+              </Link>
+            </li>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <li className="nav-item">
+              <Link className="nav-link text-info" to="/movies/collection">
+                Collection
+              </Link>
+            </li>
+            </MenuItem>
+          </Menu>
           </li>
           <li className="nav-item" style={loginBut}>
             <Link className="nav-link text-white" to="/movies/login">

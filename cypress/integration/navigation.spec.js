@@ -28,6 +28,8 @@ describe("Navigation", () => {
   describe("From the home page", () => {
     beforeEach(() => {
       cy.visit("/");
+      cy.Adminlogin();
+      cy.get("nav").find("li").eq(0).find("a").click();
     });
     it("should navigate to the movie details page and change browser URL", () => {
       cy.get(".card").eq(1).find("img").click();
@@ -35,7 +37,7 @@ describe("Navigation", () => {
       cy.get("#titles").contains(movies[1].title);
     });
     it("should allow navigation from site header", () => {
-      cy.get("nav").find("li").eq(3).find("a").click();
+      cy.get("nav").find("div").contains("Personal area").click().get("#simple-menu").contains("Favorites").click();
       cy.url().should("include", `/favorites`);
       cy.get(".title").contains("Favorite Movies");
       cy.get("nav").find("li").eq(1).find("a").click();
@@ -90,7 +92,7 @@ describe("Navigation", () => {
     });
     it("should navigate from favorites page to movie details and back", () => {
         cy.get(".card").eq(0).find("button").click();
-        cy.get("nav").find("li").eq(3).find("a").click();
+        cy.get("nav").find("div").contains("Personal area").click().get("#simple-menu").contains("Favorites").click()
         cy.get(".card").eq(0).find("img").click();
         cy.get("svg[data-icon=arrow-circle-left]").click();
         cy.url().should("include", `/favorites`);

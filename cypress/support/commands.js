@@ -24,14 +24,14 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add('Adminlogin',()=>{
-    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get("nav").find("li").eq(5).find("a").click();
     cy.get("#usernameButton").type("adminstrator") ;
     cy.get("#passwordButton").type("123456") ;
     cy.get('#Login').click();
 });
 
 Cypress.Commands.add('regist',(username,password)=>{
-    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get("nav").find("li").eq(5).find("a").click();
     cy.contains("regist").click();
     cy.contains("Username:").next().type(username) ;
     cy.get("#passwordButton").type(password) ;
@@ -39,7 +39,7 @@ Cypress.Commands.add('regist',(username,password)=>{
 });
 
 Cypress.Commands.add('login',(username,password)=>{
-    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get("nav").find("li").eq(5).find("a").click();
     cy.get("#usernameButton").type(username) ;
     cy.get("#passwordButton").type(password) ;
     cy.get("#passwordButton").next().click();
