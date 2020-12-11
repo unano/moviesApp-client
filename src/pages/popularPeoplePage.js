@@ -10,7 +10,6 @@ const PopularPeoplePage = () => {
     const [person, setPerson] = useState([]);
     const [buttonValue, setButtonValue] = React.useState('0');
     const [inputValue, setInputValue] = React.useState('');
-    console.log(person)
     useEffect(() => {
         getPopularPeople().then(person => {
             setPerson(person);
@@ -18,7 +17,6 @@ const PopularPeoplePage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       
-      console.log(buttonValue)
         const handleButtonChange = (e) => {
             setButtonValue(e.target.value);
         };

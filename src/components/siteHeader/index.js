@@ -96,6 +96,13 @@ const [anchorEl, setAnchorEl] = React.useState(null);
               </Link>
             </li>
             </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <li className="nav-item">
+              <Link className="nav-link text-info" to="/info">
+                Personal Info
+              </Link>
+            </li>
+            </MenuItem>
           </Menu>
           </li>
           <li className="nav-item" style={loginBut}>

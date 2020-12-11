@@ -13,6 +13,7 @@ const Login = props => {
     function judge(m){
         for(let i = 0; i　< username.length; i++) {
             if(username[i]===m.username && password[i]===m.password){
+                 context.setUsername(username[i]);
                  return true;
             }
             else if(i===username.length-1){

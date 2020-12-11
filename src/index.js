@@ -13,12 +13,16 @@ import WatchListPage from './pages/watchListPage';
 import CollectionPage from './pages/collectionPage';
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
+import PersonalContextProvider from "./contexts/personalContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import LoginPage from './pages/loginWindow';
 import RegistPage from './pages/registWindow';
 import LoginContextProvider from './contexts/loginContext' 
 import PeopleDetailsPage from './pages/peopleDetailsPage'
 import PopularPeoplePage from './pages/popularPeoplePage';
+import PersonalInfoPage from './pages/personalInfoPage';
+import PersonalInfoEditPage from './pages/personalInfoEditPage';
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -28,9 +32,12 @@ const App = () => {
       <div className="container-fluid">
       <MoviesContextProvider>     {/* NEW  */}
       <GenresContextProvider>    {/* NEW */}
+      <PersonalContextProvider>
         <Switch>
           <Route exact path="/person" component={PopularPeoplePage} />
           <Route path="/person/:id" component={PeopleDetailsPage} />
+          <Route exact path="/info" component={PersonalInfoPage} />
+          <Route exact path="/editInfo" component={PersonalInfoEditPage} />
           <Route exact path="/reviews/form" component={AddMovieReviewPage} />
           <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
@@ -45,6 +52,7 @@ const App = () => {
           <Redirect from="*" to="/" />
           
         </Switch>
+        </PersonalContextProvider>
         </GenresContextProvider>    {/* NEW */}
         </MoviesContextProvider>     {/* NEW */}
       </div>

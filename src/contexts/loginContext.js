@@ -1,4 +1,4 @@
-import React, {createContext,useReducer } from "react";
+import React, {createContext,useReducer, useState} from "react";
 
 export const LoginContext = createContext(null);
 
@@ -17,7 +17,7 @@ const reducer=(state, action)=> {
   
 const LoginContextProvider=(props)=>{
     const[state, dispatch] = useReducer(reducer, {login: 0});
-
+    const[username,setUsername] = useState();
     const changeStateToLogged=()=>{
         dispatch({type: 'logged'})
     }
@@ -29,8 +29,8 @@ const LoginContextProvider=(props)=>{
         <LoginContext.Provider
           value={{
             login:state.login,
-            // username:username,
-            // password:password,
+            username:username,
+            setUsername:setUsername,
             changeStateToLogged:changeStateToLogged,
             changeStateToUnLogged:changeStateToUnLogged,
         }}
