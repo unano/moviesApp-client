@@ -15,9 +15,9 @@ const PersonalInfo = () => {
       <p><strong>Username:</strong> {user.username}</p>
       <p><strong>Gender:</strong> {user.gender}</p>
       <p><strong>Birthday:</strong> {user.birthday}</p>
-      <p><strong>hobby:</strong> {user.hobby}</p>
-      <p><strong>favorite movies:</strong> {user.movies}</p>
-      <p><strong>favorite actor:</strong> {user.actors}</p>
+      <p><strong>Hobby:</strong> {user.hobby}</p>
+      <p><strong>Favorite movies:</strong> {user.movies}</p>
+      <p><strong>Favorite actors:</strong> {user.actors}</p>
       <p><strong>Personal introduction:</strong> {user.introduce}</p>
       </div>
       <li className="nav-item">

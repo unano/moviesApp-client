@@ -55,7 +55,7 @@ const PersonalInfoEdit = ({history}) => {
     const actorChange = (e) => {
         setButtonValue(e.target.value);
         var container=user;
-        container.actosr=e.target.value;
+        container.actors=e.target.value;
         setUser(container)
     };
     const introChange = (e) => {
@@ -74,7 +74,7 @@ const PersonalInfoEdit = ({history}) => {
       <div className="content" style={{width:501, height:550}}>
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
-       <p style={{fontSize:20}}>Username: {user.name}</p>
+       <p style={{fontSize:20}}>Username: {user.username}</p>
       <FormLabel style={{float: "left", fontSize:12, color:"grey"}}>Gender</FormLabel>
       <RadioGroup style={{float: "left"}}
        class="form-horizontal" aria-label="gender" name="gender" value={buttonValue} onChange={handleButtonChange}>
