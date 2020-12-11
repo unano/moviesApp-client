@@ -1,6 +1,7 @@
 let movies;
 const movieId = 497582; // Enola Holmes movie id
 let reviews;
+let people;
 
 describe("Navigation", () => {
   before(() => {
@@ -22,6 +23,16 @@ describe("Navigation", () => {
       .then((response) => {
         console.log(response);
         reviews = response.results;
+      });
+    cy.request(
+      `https://api.themoviedb.org/3/person/popular/?api_key=${Cypress.env(
+          "TMDB_KEY"
+        )}`
+      )
+      .its("body")
+      .then((response) => {
+        console.log(response);
+        people = response.results;
       });
   });
 
@@ -99,5 +110,25 @@ describe("Navigation", () => {
         cy.get(".title").contains("Favorite Movies");
     });
   });
-
+  describe("From the People page", () => {
+    beforeEach(() => {
+      cy.visit("/");
+    });
+    it("should navigate from people page to people details", () => {
+      cy.get("nav").find("li").eq(3).find("a").click();
+      cy.get(".card").eq(0).find("img").click();
+      cy.url().should("include", `/person/${people[0].id}`);
+      cy.get("#name").contains(`${people[0].name}`);
+    });
+    it("should navigate from people details to movie details page", () => {
+      cy.get("nav").find("li").eq(3).find("a").click();
+      cy.get(".card").eq(0).find("img").click();
+      cy.url().should("include", `/person/${people[0].id}`);
+      cy.get(".personMovieCard").eq(0).click();
+      cy.url().should("include", `/movies`);
+      cy.get("svg[data-icon=arrow-circle-left]").click();
+      cy.get(".name2").eq(0).click();
+      cy.url().should("include", `/movies`);
+    });
+  });
 });

@@ -44,3 +44,7 @@ Cypress.Commands.add('login',(username,password)=>{
     cy.get("#passwordButton").type(password) ;
     cy.get("#passwordButton").next().click();
 });
+
+Cypress.Commands.add('PersonAreaIcons',(iconName)=>{
+    cy.get("nav").find("div").contains("Personal area").click().get("#simple-menu").contains(iconName).click()
+});

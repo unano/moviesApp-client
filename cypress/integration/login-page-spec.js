@@ -72,7 +72,7 @@ describe("Login", () => {
         expect(stub.getCall(2)).to.be.calledWith('You have already logined')
       })
     });
-    it("should alert when username is used by outher users", () => {
+    it("should alert when password is wrong", () => {
       const stub = cy.stub();
       cy.on('window:alert', stub);
       cy.regist("user","123456");
@@ -81,25 +81,27 @@ describe("Login", () => {
       })
     });
     it("should be able to log out after login", () => {
-      const stub = cy.stub();
-      cy.on('window:alert', stub);
       cy.regist("user","123456");
       cy.login("user","123456");
       cy.get("nav").find("li").eq(6).contains("Log out");
     });
 
     it("should be able to do 'add to favorite' after login", () => {
-      const stub = cy.stub();
-      cy.on('window:alert', stub);
       cy.regist("user","123456");
       cy.login("user","123456");
       cy.get("nav").find("li").eq(0).find("a").click();
       cy.get(".card").eq(0).find("button").click();
       cy.get("nav").find("div").contains("Personal area").click().get("#simple-menu").contains("Favorites").click().then(() => {
-      cy.get(".card").eq(0).should('be.visible')
+      cy.get(".card").eq(0).should('be.visible');
     });
   });
-});
+    it("should be able to enter 'Personal area' after login", () => {
+      cy.regist("user","123456");
+      cy.login("user","123456");
+      cy.PersonAreaIcons("Favorite");
+      cy.get(".title").contains("Favorite Movies");
+    });
+  });
   describe("Log out", () => {
     beforeEach(() => {
       cy.visit(`/`);
