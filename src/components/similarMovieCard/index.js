@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import "./similarMovieCard.css";
-const MovieCard = ({movie}) => {
+const SimilarMovieCard = ({movie}) => {
 
   return (
     <div className="">
@@ -27,4 +27,4 @@ const MovieCard = ({movie}) => {
   );
 };
 
-export default MovieCard;
+export default SimilarMovieCard;

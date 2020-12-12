@@ -1,5 +1,4 @@
 import React ,{useState}from "react";
-import "../loginWindow/loginWindow.css"
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 

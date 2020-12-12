@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import {LoginContext} from '../../contexts/loginContext'
 import { Link } from "react-router-dom";
 
-const Login = props => {
+const Login = ({history}) => {
     const context = useContext(LoginContext);
     const[userInfo,setUserInfo]=useState({username:"",password:""})
     const user = JSON.parse(localStorage.getItem('user'));
@@ -26,7 +26,8 @@ const Login = props => {
         if(userInfo.username!=="" && userInfo.password!==""){
             if(judge(userInfo) && context.login===0){
                     context.changeStateToLogged();
-                    alert("login success")
+                    alert("login success");
+                    history.push("/");
                 }
             else if(context.login===1){
                 alert("You have already logined")

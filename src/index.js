@@ -15,8 +15,8 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import PersonalContextProvider from "./contexts/personalContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
-import LoginPage from './pages/loginWindow';
-import RegistPage from './pages/registWindow';
+import LoginPage from './pages/loginPage';
+import RegistPage from './pages/registPage';
 import LoginContextProvider from './contexts/loginContext' 
 import PeopleDetailsPage from './pages/peopleDetailsPage'
 import PopularPeoplePage from './pages/popularPeoplePage';

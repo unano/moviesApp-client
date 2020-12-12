@@ -18,7 +18,7 @@ const PersonCard = ({person}) => {
               : "./film-poster-placeholder.png"
           }
         />
-        </Link>
+      </Link>
         <div className="personCard-bodys">
           <div className="card-titles ">{person.name}</div>
           <div>

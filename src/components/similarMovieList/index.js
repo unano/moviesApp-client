@@ -1,14 +1,13 @@
 import React from "react";
-import Movie from "../similarMovieCard/";
+import SimilarMovieCard from "../similarMovieCard/";
 import "./similarMovieList.css"
-const MovieList = ({movies}) => {
-  console.log(movies)
+const SimilarMovieList = ({movies}) => {
   return <>
     {movies ? (
   <div className="movies3">
-    {movies.map(m => (<Movie key={m.id} movie={m} />))}
+    {movies.map(m => (<SimilarMovieCard key={m.id} movie={m} />))}
   </div>):(<p>No similar movie</p>)
     }</>
 };
 
-export default MovieList;
+export default SimilarMovieList;

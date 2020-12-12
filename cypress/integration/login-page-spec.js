@@ -47,7 +47,7 @@ describe("Login", () => {
     it("should regist in adminstrator account", () => {
       const stub = cy.stub();
       cy.on('window:alert', stub);
-      cy.Adminlogin().next().click().then(() => {
+      cy.Adminlogin().then(() => {
         expect(stub.getCall(0)).to.be.calledWith('login success')
       })
     });
@@ -57,19 +57,6 @@ describe("Login", () => {
       cy.regist("user","123456");
       cy.login("user","123456").then(() => {
         expect(stub.getCall(1)).to.be.calledWith('login success')
-      })
-    });
-    it("should alert when logining again after login", () => {
-      const stub = cy.stub();
-      cy.on('window:alert', stub);
-      cy.regist("user","123456");
-      cy.login("user","123456");
-      cy.contains("Username:").next().clear() ;
-      cy.contains("Password:").next().clear() ;
-      cy.get("#usernameButton").type("user") ;
-      cy.get("#passwordButton").type("123456") ;
-      cy.get("#passwordButton").next().click().then(() => {
-        expect(stub.getCall(2)).to.be.calledWith('You have already logined')
       })
     });
     it("should alert when password is wrong", () => {
