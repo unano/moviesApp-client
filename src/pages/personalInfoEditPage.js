@@ -87,7 +87,7 @@ const PersonalInfoEdit = ({history}) => {
           id="date"
           label="Birthday"
           type="date"
-          defaultValue="2000-01-21"
+          defaultValue={user.birthday}
           className={classes.textField}
           onChange={birthdayChange}
           InputLabelProps={{

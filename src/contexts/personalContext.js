@@ -6,7 +6,7 @@ const PersonalContextProvider=(props)=>{
     const userInfo={
         username:"",
         gender:"No record",
-        birthday:"No record",
+        birthday:"2000-01-01",
         hobby:"No record",
         movies:"No record",
         actors:"No record",
