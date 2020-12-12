@@ -14,18 +14,12 @@ describe("Regist", () => {
   it("should alert when user regists without entering anything", () => {
     cy.get("nav").find("li").eq(5).find("a").click();
     cy.contains("regist").click();
-    const stub = cy.stub();
-    cy.on('window:alert', stub);
-    cy.get("#passwordButton").next().click().then(() => {
-      expect(stub.getCall(0)).to.be.calledWith('Please entr username/password with enough length')
-    })
+    cy.get("button").click();
+    cy.get(".warn").should("have.text","Please enter username/password");
   });
   it("should alert when password is too short", () => {
-    const stub = cy.stub();
-    cy.on('window:alert', stub);
-    cy.regist("user","123").then(() => {
-      expect(stub.getCall(0)).to.be.calledWith('password too short, please change a longer one.')
-    })
+    cy.regist("user","123");
+    cy.get(".warn").should("have.text","password too short(at least 6)");
   });
   it("should alert when username is used by outher users", () => {
     const stub = cy.stub();
@@ -33,9 +27,8 @@ describe("Regist", () => {
     cy.regist("user","123456").then(() => {
       expect(stub.getCall(0)).to.be.calledWith('regist success')
     })
-    cy.regist("user","1234567").then(() => {
-      expect(stub.getCall(1)).to.be.calledWith('Username is used by other users')
-    })
+    cy.regist("user","1234567");
+    cy.get(".warn").should("have.text","Username is used");
   });
 });
 
@@ -60,13 +53,11 @@ describe("Login", () => {
       })
     });
     it("should alert when password is wrong", () => {
-      const stub = cy.stub();
-      cy.on('window:alert', stub);
       cy.regist("user","123456");
-      cy.login("user","12345678").then(() => {
-        expect(stub.getCall(1)).to.be.calledWith('wrong username/password')
-      })
-    });
+      cy.login("user","12345678");
+      cy.get(".warn").should("have.text",'wrong username/password');
+      });
+
     it("should be able to log out after login", () => {
       cy.regist("user","123456");
       cy.login("user","123456");

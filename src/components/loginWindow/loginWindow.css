@@ -21,7 +21,7 @@
 #LoginTitle{
     font-size: 30px;
     font-weight: 300;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .input{
@@ -29,4 +29,14 @@
     background-color:transparent;
     margin-right: 0px;
 
+}
+
+.warn{
+    margin: 0px auto;
+    width:85%;
+    border-radius: 5px;
+    background-color: rgb(247, 102, 19);
+    font-size: 15px;
+    padding:3px;
+    color:aliceblue;
 }

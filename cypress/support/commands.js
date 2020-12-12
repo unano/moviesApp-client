@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add('Adminlogin',()=>{
     cy.get("nav").find("li").eq(5).find("a").click();
-    cy.get("#usernameButton").type("adminstrator") ;
+    cy.get("#usernameButton").type("administrator") ;
     cy.get("#passwordButton").type("123456") ;
     cy.get('#Login').click();
 });

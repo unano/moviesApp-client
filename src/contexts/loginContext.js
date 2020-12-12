@@ -12,7 +12,7 @@ const reducer=(state, action)=> {
         throw new Error();
     }
   }
-  let user=[["adminstrator"],["123456"]]
+  let user=[["administrator"],["123456"]]
   localStorage.setItem('user',JSON.stringify(user));
   
 const LoginContextProvider=(props)=>{

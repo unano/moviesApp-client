@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 
 const Regist = props => {
+    const [warning,setWarning]=useState({content:"" , state: false});
     const[Info,recordInfo]=useState({username:"",password:""})
     function judge(m){
         const user = JSON.parse(localStorage.getItem('user'));
@@ -20,22 +21,20 @@ const Regist = props => {
 
     const DoRegist= e =>{
         if(Info.username==="" || Info.password===""){
-            alert("Please entr username/password with enough length")
+            setWarning({content:"Please enter username/password" , state: true});
         }
         else if(Info.password.length<6){
-            alert("password too short, please change a longer one.")
+            setWarning({content:"password too short(at least 6)" , state: true});
         }
         else if(judge(Info.username)){
-            // context.username[context.username.length]=Info.username;
-            // context.password[context.password.length]=Info.password;
             const Un=JSON.parse(localStorage.getItem('user'));
             Un[0].push(Info.username);
             Un[1].push(Info.password);
             localStorage.setItem('user',JSON.stringify(Un));
-
             alert("regist success")
         }
-        else(alert("Username is used by other users"))
+        
+        else{setWarning({content:"Username is used" , state: true});}
     }
 
     const UnInput= e=> {
@@ -46,10 +45,15 @@ const Regist = props => {
         recordInfo({username: "", password:""})
         recordInfo({password: e.target.value, username:Info.username})
     }
+
+    const warn = {
+        display: warning.state? "block": "none"
+      };
         
     return(
         <div id="window">
         <div id="LoginTitle">Regist</div>
+        <p  className="warn" style={warn}>{warning.content}</p>
         <dl>
             <li className="nav-item">
                 <span>Username:</span> 

@@ -5,6 +5,7 @@ import {LoginContext} from '../../contexts/loginContext'
 import { Link } from "react-router-dom";
 
 const Login = ({history}) => {
+    const [warning,setWarning]=useState({content:"" , state: false});
     const context = useContext(LoginContext);
     const[userInfo,setUserInfo]=useState({username:"",password:""})
     const user = JSON.parse(localStorage.getItem('user'));
@@ -30,11 +31,12 @@ const Login = ({history}) => {
                     history.push("/");
                 }
             else if(context.login===1){
+                setWarning({content:"You have already logined" , state: true});
                 alert("You have already logined")
             }
-            else(
-                alert("wrong username/password")
-            )
+            else{
+                setWarning({content:"wrong username/password" , state: true});
+            }
         }
     }
     const UnInput= e=> {
@@ -43,10 +45,13 @@ const Login = ({history}) => {
     const PwInput= e=> {
         setUserInfo({password: e.target.value, username:userInfo.username})
     }
-        
+    const warn = {
+        display: warning.state? "block": "none"
+      };
     return(
         <div id="window">
         <div id="LoginTitle">login</div>
+        <p  className="warn" style={warn}>{warning.content}</p>
         <dl>
             <li className="nav-item" id="usernameButton">
                 <span>Username:</span> 
