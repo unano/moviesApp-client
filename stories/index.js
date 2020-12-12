@@ -8,6 +8,10 @@ import MovieList from "../src/components/movieList";
 import MovieDetails from "../src/components/movieDetails";
 import MovieHeader from "../src/components/headerMovie";
 import AddFavoriteButton from "../src/components/buttons/addToFavorites";
+import AddToCollections from "../src/components/buttons/addToCollections";
+import AddReview from "../src/components/buttons/addReview";
+import AddToWatchList from "../src/components/buttons/addToWatchList";
+import RemoveFromWatchlist from "../src/components/buttons/removeFromWatchlist"
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
@@ -15,6 +19,7 @@ import SimilarMovieCard from "../src/components/similarMovieCard";
 import SimilarMovieList from "../src/components/similarMovieList";
 import MovieReview from  "../src/components/movieReview"
 import MovieReviews from  "../src/components/movieReviews"
+import ReviewForm from "../src/components/reviewForm"
 import PersonList from "../src/components/personList"
 import PersonCard from "../src/components/personCard"
 import PersonDetails from "../src/components/personDetails"
@@ -250,6 +255,12 @@ storiesOf("Movie Details Page/MovieReview", module)
   ))
   .add("default", () =>  <MovieReview review={review} />);
 
+storiesOf("AddMovieReviewPage", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () =>  <ReviewForm movie={sample}/>);
+
 storiesOf("Popular people Page/PersonCard", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
@@ -337,3 +348,33 @@ storiesOf("Login page", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => <LoginWindow/>);
+
+storiesOf("Buttons/AddFavoriteButton", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <AddFavoriteButton/>);
+
+storiesOf("Buttons/AddReview", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <AddReview/>);
+
+storiesOf("Buttons/AddToWatchList", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <AddToWatchList/>);
+
+storiesOf("Buttons/RemoveFromWatchlist", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <RemoveFromWatchlist/>);
+
+storiesOf("Buttons/AddToCollections", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <AddToCollections/>);
