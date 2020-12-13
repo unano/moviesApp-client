@@ -26,7 +26,7 @@ describe("Personal page", () => {
         cy.get("p").eq(5).should("have.text","Favorite actors: actorA");
         cy.get("p").eq(6).should("have.text","Personal introduction: introduceA");
     });
-    it("should have update data after doing modification", () => {
+    it("should have updated data after doing modification", () => {
         cy.contains("Modify").click();
         cy.contains("Female").click();
         cy.get("textarea").eq(0).clear().type("hobbyA");

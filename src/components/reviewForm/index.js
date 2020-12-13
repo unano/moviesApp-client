@@ -42,7 +42,7 @@ const ReviewForm = ({ movie, history }) => {
         />
       </div>
       {errors.content && (
-        <p className="text-white">{errors.content.message} </p>
+        <p className="text-black">{errors.content.message} </p>
       )}
 
       <button type="submit" className="btn btn-info alert-info">

@@ -14,7 +14,7 @@ const RemoveFromWatchListButton   = ({ movie }) => {
       type="button"
       className="btn w-100 btn-info alert-info"
       onClick={handleRemoveFromWatchList}>
-      remove from watchlist
+      remove from watch list
     </button>
   );
 };

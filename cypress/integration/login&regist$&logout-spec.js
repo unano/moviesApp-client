@@ -85,7 +85,7 @@ describe("Login", () => {
       cy.visit(`/`);
       cy.get("nav").find("li").eq(5).find("a").click();  
     });
-    it("should be able to login after logi out", () => {
+    it("should be able to login after log out", () => {
       const stub = cy.stub();
       cy.on('window:alert', stub);
       cy.regist("user","123456");
@@ -104,4 +104,14 @@ describe("Login", () => {
         expect(stub.getCall(2)).to.be.calledWith('please login first')
       })
     })
-  })
+    it("should not be able to enter 'Personal area' after log out", () => {
+      const stub = cy.stub();
+      cy.on('window:alert', stub);
+      cy.regist("user","123456");
+      cy.login("user","123456");
+      cy.get("nav").find("li").eq(6).click();
+      cy.get("nav").find("div").contains("Personal area").click().then(() => {
+        expect(stub.getCall(2)).to.be.calledWith('please login first')
+      })
+    });
+  });

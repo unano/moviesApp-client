@@ -7,7 +7,7 @@ const filterByName = (peopleList, string) =>
 const filterByGender = (peopleList, gender) =>
   peopleList.filter((p) => p.gender===parseInt(gender));
 
-describe("People Page ", () => {
+describe("PopularPeople Page ", () => {
   before(() => {
     // Get movies from TMDB and store in movies variable.
     cy.request(
@@ -33,7 +33,7 @@ describe("People Page ", () => {
     });
   });
   describe("Filtering", () => {
-    describe("By movie title" ,() => {
+    describe("By people name" ,() => {
       it("should display people with 'p ' in the title", () => {
         const searchString = 'p'
         const matchingPeople = filterByName(people, searchString );
@@ -51,7 +51,7 @@ describe("People Page ", () => {
         cy.get(".card").should("have.length", 0);
       })
     })
-    describe("By movie genre", () => {
+    describe("By people gender", () => {
       it("should display people with the specified gender only", () => {
         const targetGender="1";
         const matchingPeople = filterByGender(people, targetGender);
@@ -64,7 +64,7 @@ describe("People Page ", () => {
         });      
       });
     });
-    describe("By movie title and genre", () => {
+    describe("By people name and gender", () => {
       it("should display people with the specified genre and text only", () => {
         const searchString = "o";
         const targetGender="1";
@@ -81,4 +81,9 @@ describe("People Page ", () => {
       });
     });
   });
+  it("should display people with correct name and picture", () => {
+    cy.get(".card-titles").eq(0).should("have.text", people[0].name);
+    cy.get("img").eq(0).should("have.attr", "src")
+    .should("include", people[0].profile_path);
+    });
 });

@@ -35,7 +35,8 @@ export default ({person, movies}) => {
       <p className="subhead" id="name">{person.name}</p>
       <p className="subheadInfo" id="biography">
       <p className="subhead" style={{fontSize:20}}>Personal profile</p>
-      {person.biography}</p>
+      <p>{person.biography}</p>
+      </p>
       <PersonMovieList movies={movies}/>
       </div>
       </div>

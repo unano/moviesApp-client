@@ -20,7 +20,7 @@ const PersonMovieCard = ({movie,property,property2}) => {
         />
         </Link>
       <p className="subheadInfo" id="title">{movie.title}</p>
-      <p className="subheadInfo"style={{color:"darkturquoise"}}>{property2}{" "}{Math.round(property)}</p>
+      <p className="subheadInfo"style={{color:"darkturquoise"}}>{property2}{" "}{Math.round(property*10)/10}</p>
       </div>
       </div>
     </div>
