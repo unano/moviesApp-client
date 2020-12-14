@@ -49,21 +49,6 @@ e2etest:
   script:
     # start the server in the background
     - npm run start:ci
-
-
-fetch: 
-  stage: build
-  script:
-    - echo "=====start build======"
-    - npm install
-    - npm run build
-    - echo "=====end build======"
-  only:
-    - master
-  artifacts: 
-    expire_in: 2 week
-    paths: 
-      - dist/
     
 deploy-static:
   stage: deploy
