@@ -70,3 +70,5 @@ deploy-static:
   script:
     - echo "=====start deploy======"
     - echo "=====end deploy======"
+  only:
+    - master
