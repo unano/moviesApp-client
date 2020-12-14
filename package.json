@@ -18,12 +18,16 @@
   },
   "scripts": {
     "storybook": "start-storybook -s ./public -p 6006 -c ./.storybook",
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:ci": "start-server-and-test 'http-server ./build  -p 3000' 3000 'cypress run --browser chrome --record'",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "cy:open": "cypress open",
+    "cy:run":" cypress run",
+    "dev": "start-test 3000 cy:open",
+    "e2e": "start-test 3000"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +39,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@cypress/code-coverage": "^3.8.7",
+    "@cypress/instrument-cra": "^1.4.0",
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/react": "^5.3.1",
     "babel-loader": "^8.0.6",

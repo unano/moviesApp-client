@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PersonalInfo = ({user}) => {
   return (
-    <div className="content" style={{width:501, height:550, padding:28}}>
+    <div className="content" style={{width:501, height:550, padding:28, margin: "auto"}}>
       <h1 style={{fontWeight:200, marginBottom:20}}>User profile</h1>
       <div style={{fontSize:20, fontWeight:100}}>
       <p><strong>Username:</strong> {user.username}</p>
