@@ -220,5 +220,14 @@ describe("Navigation", () => {
       cy.contains("Modify").click();
       cy.url().should("include", `/editInfo`);
     });
+    it("should navigate from personalInfoEdit  page to personalInfo page and change url", () => {
+      cy.PersonAreaIcons("Personal Info");
+      cy.contains("Modify").click();
+      cy.contains("Update").click();
+      cy.url().should("include", `/info`);
+      cy.contains("Modify").click();
+      cy.contains("Back").click();
+      cy.url().should("include", `/info`);
+    });
   });
 });
