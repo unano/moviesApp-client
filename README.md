@@ -92,9 +92,11 @@ Name: Jiaqi Gu
 
 ## Independent learning (If relevant).
 
-Use useForm hook to deal with user input in login/regist page. Use handleSubmit and ref={register} as a replacement of value={} onchange={}  reference: https://react-hook-form.com/api
-Use Material UI (Button, Textarea and so on)on personalInfoEdit page and the filter in popularPeople page.  reference: https://material-ui.com/
-Use Styled Components on login/regist page so they can have the same style of component.  reference: https://styled-components.com/
++ Use useForm hook to deal with user input in login/regist page. Use handleSubmit and ref={register} as a replacement of value={} onchange={}  reference: https://react-hook-form.com/api
+
++ Use Material UI (Button, Textarea and so on)on personalInfoEdit page and the filter in popularPeople page.  reference: https://material-ui.com/
+
++ Use Styled Components on login/regist page so they can have the same style of component.  reference: https://styled-components.com/
 
 ---------------------------------
 
@@ -104,7 +106,7 @@ Name: Jiaqi Gu
 
 ## App Features.
 
-+watchlistPage & topRatedPage & collection page
++ watchlistPage & topRatedPage & collection page
 
 Tests: cypress/integration/navigation.spec ;  cypress/integration/button.spec.js
 
@@ -122,14 +124,14 @@ Tests: cypress/integration/movieDetails.spec.js
 ![][similarMovies]
 
 
-+popularPeoplePage - show popluar movie actors with popularity. Providing filter for user.
++ popularPeoplePage - show popluar movie actors with popularity. Providing filter for user.
 
 Test: cypress/integration/popularPerson-page.spec.js
 
-![][poupularPerson]
+![][popularPerson]
 
 
-+peopleDetailsPage -show details of chosen person, and show their performing movies.
++ peopleDetailsPage -show details of chosen person, and show their performing movies.
 
 Test: cypress/integration/personDetail-page.spec.js
 
@@ -137,28 +139,28 @@ Test: cypress/integration/personDetail-page.spec.js
 ![][popularPersonDetail02]
 
 
-+loginPage - show window for user to login
++ loginPage - show window for user to login
 
 Test: cypress/integration/login&regist$&logout-spec.js
 
 ![][login]
 
 
-+registPage - show window for user to regist
++ registPage - show window for user to regist
 
 Test: cypress/integration/login&regist$&logout-spec.js
 
 ![][regist]
 
 
-+personalInfoPage - show logged user's personal information
++ personalInfoPage - show logged user's personal information
 
 Test: cypress/integration/lpersonal-page.spec.js
 
 ![][info]
 
 
-+personalInfoEditPage - edit logged user's personal information and user can update their information.
++ personalInfoEditPage - edit logged user's personal information and user can update their information.
 
 Test: cypress/integration/lpersonal-page.spec.js
 
@@ -167,8 +169,8 @@ Test: cypress/integration/lpersonal-page.spec.js
 
 ## Testing.
 
-Cypress Dashboard URL: https://dashboard.cypress.io/projects/os9v23/
-Since my cypress Dashboard has reached the limit of records, this is the link for the demonstration of all tests that are runned locally by "npx cypress run" :https://youtu.be/exhf36F_974
++ Cypress Dashboard URL: https://dashboard.cypress.io/projects/os9v23/
++ Since my cypress Dashboard has reached the limit of records, this is the link for the demonstration of all tests that are runned locally by "npx cypress run" :https://youtu.be/exhf36F_974
 
 ### Advanced Testing (If required).
 
@@ -182,24 +184,21 @@ e.g.
 
 ## Independent learning (If relevant).
 
-[ Itemize each technologies/techniques used in your project that were not covered in the lectures/labs. Provide the necessary evidence of their use (e,g, project file names, screenshots, service URL, etc)
++ cypress plugin: code coverage  reference: https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/
 
-List reference material links (articles/blogs).
-cypress plugin: code coverage  reference: https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/
-
-The code cover of certain test
++ The code cover of certain test
 ![][partCoverage]
 
 
-The code cover of all test
++ The code cover of all test
 ![][allCoverage01]
 ![][allCoverage02]
 
-Try to use gitlabRunner(Although the result was not good...)
++ Try to use gitlabRunner(Although the result was not good...)
 ![][gitlabRunner]
 ![][runner2]
 
-cypress custom commands：create custom commands of login which is often used and other commands that make test coding convenient.
++ cypress custom commands：create custom commands of login which is often used and other commands that make test coding convenient.
 
 ---------------------------------
 
@@ -216,7 +215,7 @@ cypress custom commands：create custom commands of login which is often used an
 [login]: ./public/login.png
 [popularPersonDetail01]: ./public/popularPersonDetail01.png
 [popularPersonDetail02]: ./public/popularPersonDetail02.png
-[poupularPerson]: ./public/popularPerson.png
+[popularPerson]: ./public/popularPerson.png
 [similarMovies]: ./public/similarMovies.png
 [similarMovieCardLink]: ./public/similarMovieCardLink.png
 [infoLink]: ./public/infoLink.png
@@ -229,3 +228,4 @@ cypress custom commands：create custom commands of login which is often used an
 [allCoverage01]: ./public/allCoverage01.png
 [allCoverage02]: ./public/allCoverage02.png
 [gitlabRunner]: ./public/gitlabRunner
+[loginLink]: ./public/loginLink.png
