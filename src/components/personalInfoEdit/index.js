@@ -41,7 +41,7 @@ const PersonalInfoEdit = ({history, userInfo}) => {
   };
 
   return (
-      <div className="content">
+      <div className="content2">
       <div className="form-group">
     <form className="form" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
 
