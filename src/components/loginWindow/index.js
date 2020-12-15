@@ -1,8 +1,13 @@
 import React ,{useState, useContext}from "react";
 import "./loginWindow.css"
-import Button from '@material-ui/core/Button';
 import {LoginContext} from '../../contexts/loginContext'
 import { Link } from "react-router-dom";
+import Button from "../pubilcOfLogin&Logout/button.js"
+import LoginTitle from "../pubilcOfLogin&Logout/loginTitle.js"
+import Input from "../pubilcOfLogin&Logout/input.js"
+import Warn from "../pubilcOfLogin&Logout/warn.js"
+import Li from "../pubilcOfLogin&Logout/li.js"
+import Warp from "../pubilcOfLogin&Logout/warp.js"
 
 const Login = ({history}) => {
     const [warning,setWarning]=useState({content:"" , state: false});
@@ -49,19 +54,20 @@ const Login = ({history}) => {
         display: warning.state? "block": "none"
       };
     return(
+        <Warp>
         <div id="window">
-        <div id="LoginTitle">login</div>
-        <p  className="warn" style={warn}>{warning.content}</p>
+        <LoginTitle>login</LoginTitle>
+        <Warn className="warn" style={warn}>{warning.content}</Warn>
         <dl>
-            <li className="nav-item" id="usernameButton">
+            <Li className="nav-item" id="usernameButton">
                 <span>Username:</span> 
-                <input className="input" onChange={UnInput} required />
-            </li>
-            <li className="nav-item"  id ="passwordButton">
+                <Input onChange={UnInput} required />
+            </Li>
+            <Li className="nav-item" style={{marginBottom:35}}  id ="passwordButton">
                 <span>Password:</span>
-                <input className="input" id="passwordButton" onChange={PwInput} required />
-            </li>
-            <Button variant="outlined" size="small" type="button" id="Login" onClick={ValidateLogin}>
+                <Input onChange={PwInput} required />
+            </Li>
+            <Button id="Login" onClick={ValidateLogin}>
                 Login
             </Button>
             <Link className="nav-link" to="/movies/regist">
@@ -69,6 +75,7 @@ const Login = ({history}) => {
             </Link>
         </dl>
         </div>
+        </Warp>
     )
 }
 

@@ -22,6 +22,9 @@ import LoginContextProvider from './contexts/loginContext'
 // import PopularPeoplePage from './pages/popularPeoplePage';
 // import PersonalInfoPage from './pages/personalInfoPage';
 // import PersonalInfoEditPage from './pages/personalInfoEditPage';
+import {ThemeProvider} from "styled-components";
+import * as theme from "./config/theme.js"; 
+
 
 const MoviePage = lazy(() => import('./pages/movieDetailsPage'));
 const LoginPage = lazy(() => import( './pages/loginPage'));
@@ -40,6 +43,7 @@ const PopularPeoplePage = lazy(() => import('./pages/popularPeoplePage'));
 
 const App = () => {
   return (
+    <ThemeProvider theme={theme}>
     <BrowserRouter>
     <div className="jumbotron bg-white">
     <LoginContextProvider>
@@ -75,6 +79,7 @@ const App = () => {
       </LoginContextProvider>
     </div>
   </BrowserRouter>
+  </ThemeProvider>
   );
 };
 

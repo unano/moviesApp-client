@@ -1,6 +1,12 @@
 import React ,{useState}from "react";
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
+import Button from "../pubilcOfLogin&Logout/button.js"
+import LoginTitle from "../pubilcOfLogin&Logout/loginTitle.js"
+import Input from "../pubilcOfLogin&Logout/input.js"
+import Warn from "../pubilcOfLogin&Logout/warn.js"
+import Li from "../pubilcOfLogin&Logout/li.js"
+import Warp from "../pubilcOfLogin&Logout/warp.js"
 
 const Regist = props => {
     const [warning,setWarning]=useState({content:"" , state: false});
@@ -49,21 +55,22 @@ const Regist = props => {
     const warn = {
         display: warning.state? "block": "none"
       };
-        
+
     return(
+        <Warp>
         <div id="window">
-        <div id="LoginTitle">Regist</div>
-        <p  className="warn" style={warn}>{warning.content}</p>
+        <LoginTitle>Regist</LoginTitle>
+        <Warn className="warn" style={warn}>{warning.content}</Warn>
         <dl>
-            <li className="nav-item">
+            <Li className="nav-item" id="usernameButton">
                 <span>Username:</span> 
-                <input className="input" onChange={UnInput} required />
-            </li>
-            <li className="nav-item" id ="passwordButton">
+                <Input onChange={UnInput} required />
+            </Li>
+            <Li className="nav-item" style={{marginBottom:35}} id ="passwordButton">
                 <span>Password:</span> 
-                <input className="input" id="passwordButton" onChange={PwInput} required />
-            </li>
-            <Button variant="outlined" size="small" type="button" onClick={DoRegist}>
+                <Input onChange={PwInput} required />
+            </Li>
+            <Button onClick={DoRegist}>
                 Regist
             </Button>
             <Link className="nav-link" to="/movies/login">
@@ -71,6 +78,7 @@ const Regist = props => {
             </Link>
         </dl>
         </div>
+        </Warp>
     )
 }
 
