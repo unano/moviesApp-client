@@ -18,7 +18,7 @@ describe("Personal page", () => {
         cy.get("textarea").eq(1).clear().type("movieA");
         cy.get("textarea").eq(2).clear().type("actorA");
         cy.get("textarea").eq(3).clear().type("introduceA");
-        cy.get("button").eq(0).click();
+        cy.get("button").eq(1).click();
         cy.get("p").eq(0).should("have.text","Username: userA");
         cy.get("p").eq(1).should("have.text","Gender: female");
         cy.get("p").eq(3).should("have.text","Hobby: hobbyA");
@@ -33,7 +33,7 @@ describe("Personal page", () => {
         cy.get("textarea").eq(1).clear().type("movieA");
         cy.get("textarea").eq(2).clear().type("actorA");
         cy.get("textarea").eq(3).clear().type("introduceA");
-        cy.get("button").eq(0).click();
+        cy.get("button").eq(1).click();
         cy.get("p").eq(0).should("have.text","Username: userA");
         cy.get("p").eq(1).should("have.text","Gender: female");
         cy.get("p").eq(3).should("have.text","Hobby: hobbyA");
@@ -47,7 +47,7 @@ describe("Personal page", () => {
         cy.get("textarea").eq(1).clear().type("movieA");
         cy.get("textarea").eq(2).clear().type("actorA");
         cy.get("textarea").eq(3).clear().type("introduceA");
-        cy.get("button").eq(0).click();
+        cy.get("button").eq(1).click();
         cy.contains("Modify").click();
         cy.get("textarea").eq(0).should("have.text","hobbyA");
         cy.get("textarea").eq(1).should("have.text","movieA");

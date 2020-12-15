@@ -11,12 +11,6 @@ describe("Regist", () => {
       expect(stub.getCall(0)).to.be.calledWith('regist success')
     })
   });
-  it("should alert when user regists without entering anything", () => {
-    cy.get("nav").find("li").eq(5).find("a").click();
-    cy.contains("regist").click();
-    cy.get("button").click();
-    cy.get(".warn").should("have.text","Please enter username/password");
-  });
   it("should alert when password is too short", () => {
     cy.regist("user","123");
     cy.get(".warn").should("have.text","password too short(at least 6)");
