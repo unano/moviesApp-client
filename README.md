@@ -39,6 +39,7 @@ Name: Jiaqi Gu
 >Shows popluar actors ordered by popularity. The filter above can help user find the actor they want quickly by name filter and ender filter. User can also see actor's detail by clicking their image.
 
 ![][popularPersonDetail01]
+
 ![][popularPersonDetail02]
 >display the personal details of actors, such as: personal information, the movies(the highest popularity movies,the highest makrs movies, and all movies) he/she participates
 
@@ -53,10 +54,6 @@ Name: Jiaqi Gu
 
 ![][infoEdit]
 >Show personal info Edit page. User can change their personal data and update it. The previous data will be written on the input area for the convenience of user.
-
-
-![][review]
->Shows the full text for a movie review. 
 
 ## Routing.
 
@@ -92,11 +89,14 @@ Name: Jiaqi Gu
 
 ## Independent learning (If relevant).
 
-+ Use useForm hook to deal with user input in login/regist page. Use handleSubmit and ref={register} as a replacement of value={} onchange={}  reference: https://react-hook-form.com/api
++ Use useForm hook to deal with user input in login/regist page. Use handleSubmit and ref={register} as a replacement of value={} onchange={}  
+reference: https://react-hook-form.com/api
 
-+ Use Material UI (Button, Textarea and so on)on personalInfoEdit page and the filter in popularPeople page.  reference: https://material-ui.com/
++ Use Material UI (Button, Textarea and so on)on personalInfoEdit page and the filter in popularPeople page.  
+reference: https://material-ui.com/
 
-+ Use Styled Components on login/regist page so they can have the same style of component.  reference: https://styled-components.com/
++ Use Styled Components on login/regist page so they can have the same style of component.  
+reference: https://styled-components.com/
 
 ---------------------------------
 
@@ -121,6 +121,7 @@ And since the codes are nearly the sane as homepage. I just test whether their n
 Tests: cypress/integration/movieDetails.spec.js 
 
 ![][movieDetail]
+
 ![][similarMovies]
 
 
@@ -136,6 +137,7 @@ Test: cypress/integration/popularPerson-page.spec.js
 Test: cypress/integration/personDetail-page.spec.js
 
 ![][popularPersonDetail01]
+
 ![][popularPersonDetail02]
 
 
@@ -155,14 +157,14 @@ Test: cypress/integration/login&regist$&logout-spec.js
 
 + personalInfoPage - show logged user's personal information
 
-Test: cypress/integration/lpersonal-page.spec.js
+Test: cypress/integration/personal-page.spec.js
 
 ![][info]
 
 
 + personalInfoEditPage - edit logged user's personal information and user can update their information.
 
-Test: cypress/integration/lpersonal-page.spec.js
+Test: cypress/integration/personal-page.spec.js
 
 ![][infoEdit]
 
@@ -174,28 +176,30 @@ Test: cypress/integration/lpersonal-page.spec.js
 
 ### Advanced Testing (If required).
 
-[State briefly each instances of boundary and/or error/exceptional test case in your project]
-e.g.
-
-
 + cypress/integration/movieReviewPage.spec.js - test the movieReview page when the user input is invalid. 
 + cypress/integration/login&regist$&logout-spec.js - test the regist/login page and logout button when the user input is invalid.
 
 
 ## Independent learning (If relevant).
 
-+ cypress plugin: code coverage  reference: https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/
++ cypress plugin: code coverage  
+reference: https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/
 
 + The code cover of certain test
+
 ![][partCoverage]
 
 
 + The code cover of all test
+
 ![][allCoverage01]
+
 ![][allCoverage02]
 
-+ Try to use gitlabRunner(Although the result was not good...)
++ Try to use gitlabRunner(Although the result seemed not so good...)
+
 ![][gitlabRunner]
+
 ![][runner2]
 
 + cypress custom commands：create custom commands of login which is often used and other commands that make test coding convenient.
@@ -204,7 +208,6 @@ e.g.
 
 [model]: ./data.jpg
 [movieDetail]: ./public/movieDetail.png
-[review]: ./public/review.png
 [reviewLink]: ./public/reviewLink.png
 [cardLink]: ./public/cardLink.png
 [stories]: ./public/storybook.png
@@ -227,5 +230,6 @@ e.g.
 [partCoverage]: ./public/partCoverage.png
 [allCoverage01]: ./public/allCoverage01.png
 [allCoverage02]: ./public/allCoverage02.png
-[gitlabRunner]: ./public/gitlabRunner
+[gitlabRunner]: ./public/gitlabRunner.png
+[runner2]: ./public/runner2.png
 [loginLink]: ./public/loginLink.png
