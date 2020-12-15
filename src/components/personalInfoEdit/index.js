@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import FormLabel from '@material-ui/core/FormLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import"./psInfoEdit.css";
 
 const PersonalInfoEdit = ({history, userInfo}) => {
     const {handleSubmit} = useForm();
@@ -40,7 +41,7 @@ const PersonalInfoEdit = ({history, userInfo}) => {
   };
 
   return (
-      <div className="content" style={{width:501, height:550}}>
+      <div className="content">
       <div className="form-group">
     <form className="form" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
 

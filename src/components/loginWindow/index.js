@@ -1,5 +1,4 @@
 import React ,{useState, useContext}from "react";
-import "./loginWindow.css"
 import {LoginContext} from '../../contexts/loginContext'
 import { Link } from "react-router-dom";
 import Button from "../pubilcOfLogin&Logout/button.js"
@@ -8,11 +7,13 @@ import Input from "../pubilcOfLogin&Logout/input.js"
 import Warn from "../pubilcOfLogin&Logout/warn.js"
 import Li from "../pubilcOfLogin&Logout/li.js"
 import Warp from "../pubilcOfLogin&Logout/warp.js"
+import useForm from "react-hook-form"; 
+
 
 const Login = ({history}) => {
+    const {handleSubmit,register} = useForm();
     const [warning,setWarning]=useState({content:"" , state: false});
     const context = useContext(LoginContext);
-    const[userInfo,setUserInfo]=useState({username:"",password:""})
     const user = JSON.parse(localStorage.getItem('user'));
     const username =user[0]
     const password =user[1]
@@ -28,9 +29,10 @@ const Login = ({history}) => {
         }
     }
 
-    const ValidateLogin=()=>{
-        if(userInfo.username!=="" && userInfo.password!==""){
-            if(judge(userInfo) && context.login===0){
+    function onSubmit(data){
+        console.log(data)
+        if(data.username!=="" && data.password!==""){
+            if(judge(data) && context.login===0){
                     context.changeStateToLogged();
                     alert("login success");
                     history.push("/");
@@ -44,12 +46,7 @@ const Login = ({history}) => {
             }
         }
     }
-    const UnInput= e=> {
-        setUserInfo({username: e.target.value, password:userInfo.password})
-    }
-    const PwInput= e=> {
-        setUserInfo({password: e.target.value, username:userInfo.username})
-    }
+    
     const warn = {
         display: warning.state? "block": "none"
       };
@@ -58,22 +55,24 @@ const Login = ({history}) => {
         <div id="window">
         <LoginTitle>login</LoginTitle>
         <Warn className="warn" style={warn}>{warning.content}</Warn>
+        <form onSubmit={handleSubmit(onSubmit)}>
         <dl>
             <Li className="nav-item" id="usernameButton">
                 <span>Username:</span> 
-                <Input onChange={UnInput} required />
+                <Input name="username" ref={register} required />
             </Li>
             <Li className="nav-item" style={{marginBottom:35}}  id ="passwordButton">
                 <span>Password:</span>
-                <Input onChange={PwInput} required />
+                <Input name="password" ref={register} required />
             </Li>
-            <Button id="Login" onClick={ValidateLogin}>
+            <Button id="Login" type="submit">
                 Login
             </Button>
             <Link className="nav-link" to="/movies/regist">
                 regist
             </Link>
         </dl>
+        </form>
         </div>
         </Warp>
     )
