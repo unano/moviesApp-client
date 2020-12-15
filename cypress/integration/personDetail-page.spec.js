@@ -65,14 +65,14 @@ describe("PersonDetail Page ", () => {
         .should("include", person.profile_path);
       })
       it("should display personal profile of the person",()=>{
-        cy.contains("Name").next().should("have.text", person.name);
-        cy.contains("Date of Birth").next().should("have.text", person.birthday);
-        cy.contains("Gender").next().should("have.text", person.gender===1?"female" :"male");
-        cy.contains("Popularity").next().should("have.text", person.popularity);
-        cy.contains("birthplace").next().should("have.text", person.place_of_birth);
-        cy.contains("Known for").next().should("have.text", person.known_for_department);
+        cy.contains("Name").next().should("contain", person.name);
+        cy.contains("Date of Birth").next().should("contain", person.birthday);
+        cy.contains("Gender").next().should("contain", person.gender===1?"female" :"male");
+        cy.contains("Popularity").next().should("contain", person.popularity);
+        cy.contains("birthplace").next().should("contain", person.place_of_birth);
+        cy.contains("Known for").next().should("contain", person.known_for_department);
         cy.contains("Also knwon as").next().should("contain", person.also_known_as[0]);
-        cy.get("#name").should("have.text", person.name);
+        cy.get("#name").should("contain", person.name);
         cy.contains("Personal profile").next().should("contain", person.biography);
       })
     })
