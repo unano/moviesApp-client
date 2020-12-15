@@ -120,7 +120,7 @@ it("should display movie title in the page header", () => {
 
   });
   it("should display similar movies", () => {
-    cy.get("img").eq(1).should("have.attr", "src")
+    cy.get("#movpic2").eq(0).should("have.attr", "src")
     .should("include", SimilarMovies.results[0].poster_path);
   });
   
