@@ -13,8 +13,8 @@ import Button from '@material-ui/core/Button';
 const PersonalInfoEdit = ({history, userInfo}) => {
     const {handleSubmit} = useForm();
     const context = useContext(PersonalContext);
-    const [buttonValue, setButtonValue] = useState('0');
     const [user,setUser]=useState(userInfo);
+    console.log(user)
 
     const useStyles = makeStyles((theme) => ({
         container: {
@@ -28,66 +28,39 @@ const PersonalInfoEdit = ({history, userInfo}) => {
         },
       }));
     const classes = useStyles();
-    const handleButtonChange = (e) => {
-        setButtonValue(e.target.value);
-        var container=user;
-        container.gender=e.target.value;
-        context.setUser(container)
-    };
-    const birthdayChange = (e) => {
-        var container=user;
-        container.birthday=e.target.value;
-        setUser(container)
-    };
-    const hobbyChange = (e) => {
-        var container=user;
-        container.hobby=e.target.value;
-        setUser(container)
-    };
-    const movieChange = (e) => {
-        var container=user;
-        container.movies=e.target.value;
-        setUser(container)
-    };
-    const actorChange = (e) => {
-        var container=user;
-        container.actors=e.target.value;
-        setUser(container)
-    };
-    const introChange = (e) => {
-        var container=user;
-        container.introduce=e.target.value;
-        setUser(container)
-    };
+
+    function handleChange({target}){
+      setUser(user => ({...user, [target.name]: target.value}))
+    }
     
-    const onSubmit = () => {
+    function onSubmit(formData){
         context.setUser(user);
+        console.log(formData);
         history.push("/info");
   };
 
   return (
       <div className="content" style={{width:501, height:550}}>
-    <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
+    <form className="form" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+
        <p style={{fontSize:20}}>Username: {userInfo.username}</p>
       <FormLabel style={{float: "left", fontSize:12, color:"grey"}}>Gender</FormLabel>
       <RadioGroup style={{float: "left"}}
-       class="form-horizontal" aria-label="gender" name="gender" value={buttonValue} onChange={handleButtonChange}>
+       class="form-horizontal" aria-label="gender" name="gender" value={user.gender} onChange={handleChange}>
         <FormControlLabel value="female" control={<Radio color="default"/>} label="Female" />
         <FormControlLabel value="male" control={<Radio color="default"/>} label="Male" />
        </RadioGroup>
         <TextField
-          name="Birthday"
+          name="birthday"
           style={{marginBottom:20}}
           id="date"
-          label="Birthday"
+          label="birthday"
           type="date"
+          value={user.birthday}
           defaultValue={userInfo.birthday}
           className={classes.textField}
-          onChange={birthdayChange}
-          InputLabelProps={{
-            shrink: true,
-          }}
+          onChange={handleChange}
         />
         <br/>
         <br/>
@@ -98,32 +71,35 @@ const PersonalInfoEdit = ({history, userInfo}) => {
           label="hobby"
           multiline
           rows={1}
+          value={user.hobby}
           defaultValue={userInfo.hobby}
-          onChange={hobbyChange}
+          onChange={handleChange}
           variant="outlined"
         />
         <br/>
         <TextField
-          name="movie"
+          name="movies"
           id="outlined-multiline-static"
           style={{width: 455, marginBottom:14}}
           label="favorite movie"
           multiline
           rows={1}
+          value={user.movies}
           defaultValue={userInfo.movies}
-          onChange={movieChange}
+          onChange={handleChange}
           variant="outlined"
         />
         <br/>
         <TextField
-          name="actor"
+          name="actors"
           id="outlined-multiline-static"
           style={{width: 455, marginBottom:14}}
           label="favorite actor"
           multiline
           rows={1}
+          value={user.actors}
           defaultValue={userInfo.actors}
-          onChange={actorChange}
+          onChange={handleChange}
           variant="outlined"
         />
         <br/>
@@ -134,8 +110,9 @@ const PersonalInfoEdit = ({history, userInfo}) => {
           label="Personal introduction"
           multiline
           rows={3}
+          value={user.introduce}
           defaultValue={userInfo.introduce}
-          onChange={introChange}
+          onChange={handleChange}
           variant="outlined"
         />
         <Button variant="contained" style={{float: "right"}} onClick={() => history.goBack()}>Back</Button>
@@ -143,8 +120,8 @@ const PersonalInfoEdit = ({history, userInfo}) => {
         style={{float: "right" ,marginRight:10, backgroundColor: "darkturquoise"}}>
         Update
         </Button>
-      </div>
     </form>
+    </div>
       </div>
   );
 };
