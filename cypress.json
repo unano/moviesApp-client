@@ -1,5 +1,5 @@
 {
     "baseUrl": "http://localhost:3000/",
     "projectId": "os9v23",
-    "defaultCommandTimeout":6000
+    "defaultCommandTimeout":12000
 }
