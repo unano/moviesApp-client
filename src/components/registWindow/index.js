@@ -34,7 +34,7 @@ const Regist = props => {
         else if(data.password.length<6){
             setWarning({content:"password too short(at least 6)" , state: true});
         }
-        else if(judge(data.username && data.password.length<6)){
+        else if(judge(data.username) && data.password.length>=6){
             const Un=JSON.parse(localStorage.getItem('user'));
             Un[0].push(data.username);
             Un[1].push(data.password);
