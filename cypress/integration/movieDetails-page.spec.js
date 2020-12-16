@@ -121,7 +121,7 @@ it("should display movie title in the page header", () => {
   });
   it("should display similar movies", () => {
     cy.get("#movpic2").should("have.attr", "src")
-    .should("include", SimilarMovies.results[1].poster_path);
+    .should("include", SimilarMovies.results[0].poster_path);
   });
   
 
