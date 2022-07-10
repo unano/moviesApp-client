@@ -1,6 +1,4 @@
-# Assignment 1 - ReactJS app.
-
-Name: Jiaqi Gu
+# ReactJS app.
 
 ## Features.
  
@@ -100,9 +98,8 @@ reference: https://styled-components.com/
 
 ---------------------------------
 
-# Assignment 1 - Agile Software Practice.
+# Agile Software Practice.
 
-Name: Jiaqi Gu
 
 ## App Features.
 
@@ -180,7 +177,7 @@ Test: cypress/integration/personal-page.spec.js
 + cypress/integration/login&regist$&logout-spec.js - test the regist/login page and logout button when the user input is invalid.
 
 
-## Independent learning (If relevant).
+## Other.
 
 + cypress plugin: code coverage  
 reference: https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/
